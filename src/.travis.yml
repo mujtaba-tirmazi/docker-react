@@ -1,0 +1,11 @@
+sudo: required
+
+services: 
+  - docker
+
+before-install:
+  - docker build -t mujtabatirmazi/react-app -f Dockerfile.dev .
+
+
+script:
+  - docker run mujtabatirmazi/react-app npm run test -- --coverage
